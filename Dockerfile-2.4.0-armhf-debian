@@ -1,0 +1,10 @@
+FROM openhab/openhab:2.4.0-armhf-debian
+
+# Install additional packages
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+        iputils-arping \
+        openssh-client \
+        android-tools-adb && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
